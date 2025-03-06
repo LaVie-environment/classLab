@@ -1,0 +1,1 @@
+The Student class is just a plain container for Student data, hence it does not implement any other behavior. It keeps the application usging this Student class isolated from any persistence mechanism that would be implemented.
