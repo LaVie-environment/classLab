@@ -84,6 +84,14 @@ public class Student {
         return street;
     }
 
+    public void setotherName(String otherName) {
+        this.otherName = otherName;
+    }
+
+    public String getotherName() {
+        return otherName;
+    }
+
     public void setStreet(String street) {
         this.street = street;
     }
@@ -118,6 +126,7 @@ public class Student {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", otherName='" + otherName + '\'' +
                 ", personalNumber='" + personalNumber + '\'' +
                 ", phone='" + phone + '\'' +
                 ", city='" + city + '\'' +
