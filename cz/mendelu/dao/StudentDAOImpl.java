@@ -1,5 +1,7 @@
 package cz.mendelu.dao;
 
+import cz.mendelu.dao.domain.Address;
+import cz.mendelu.dao.domain.NullStudent;
 import cz.mendelu.dao.domain.Student;
 
 import java.util.ArrayList;
@@ -17,7 +19,6 @@ public class StudentDAOImpl implements StudentDAO{
     }
 
     public List<Student> getStudents(){
-
         return students;
     }
 
@@ -28,8 +29,8 @@ public class StudentDAOImpl implements StudentDAO{
             }
 
         }
-        return null;
-        // return new Student(1, "John");
+
+        return new NullStudent;
     }
 
     public void save(Student student){
