@@ -6,46 +6,31 @@ public class Student {
     private String surname;
     private String personalNumber;
     private String phone;
-    private String city;
-    private String street;
-    private String postcode;
     private int age;
-    private String country;
+    private Address address;
 
-    // Constructor with all attributes
-    public Student(int id, String name, String surname, String personalNumber, String phone, String city, String street, String postcode, int age, String country) {
+
+    public Student(int id, String name, String surname, String personalNumber, String phone, int age, Address address) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.personalNumber = personalNumber;
         this.phone = phone;
-        this.city = city;
-        this.street = street;
-        this.postcode = postcode;
         this.age = age;
-        this.country = country;
+        this.address = address;
+
     }
 
-    // Constructor with only name
     public Student(String name) {
-         this.name = name;
-    }
-
-    // Getters and Setters for all attributes
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.name = name;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
     }
 
     public String getSurname() {
@@ -72,36 +57,12 @@ public class Student {
         this.phone = phone;
     }
 
-    public String getCity() {
-        return city;
+    public Address getaddress() {
+        return address;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setotherName(String otherName) {
-        this.otherName = otherName;
-    }
-
-    public String getotherName() {
-        return otherName;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public int getAge() {
@@ -120,20 +81,89 @@ public class Student {
         this.country = country;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", otherName='" + otherName + '\'' +
                 ", personalNumber='" + personalNumber + '\'' +
                 ", phone='" + phone + '\'' +
-                ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", postcode='" + postcode + '\'' +
                 ", age=" + age +
-                ", country='" + country + '\'' +
+                ", address='" + address + '\'' +
                 '}';
+    }
+
+    public boolean isNull() {
+        return false;
+    }
+
+    private Student(Builder builder) {
+        this.id = builder.id;
+        this.name = builder.name;
+        this.surname = builder.surname;
+        this.personalNumber = builder.personalNumber;
+        this.phone = builder.phone;
+        this.age = builder.age;
+        this.address = builder.address;
+    }
+
+    public static class Builder {
+        private int id;
+        private String name;
+        private String surname;
+        private String personalNumber;
+        private String phone;
+        private int age;
+        private Address address;
+
+        public Builder(int id, String name, String surname) {
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+        }
+
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder surname(String surname) {
+            this.surname = surname;
+            return this;
+        }
+
+        public Builder personalNumber(String personalNumber) {
+            this.personalNumber = personalNumber;
+            return this;
+        }
+
+        public Builder phone(String phone) {
+            this.phone = phone;
+            return this;
+        }
+
+        public Builder address(Address address) {
+            this.address = address;
+            return this;
+        }
+
+        public Builder age(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public Student build() {
+            return new Student(this);
+        }
     }
 }
